@@ -280,13 +280,7 @@ The function includes comprehensive logging. Check Twilio Function logs for:
 - 🔄 State transitions
 - ✓ Action processing markers
 
-## Performance & Costs
-
-**Twilio Charges:**
-- Voice per minute (varies by destination)
-- Real-time Transcription: ~$0.02/minute
-- AMD: ~$0.01/call
-- Function execution: Minimal (included in most plans)
+## Performance 
 
 **Response Times:**
 - iOS 26 detection: 2-5 seconds from preamble start
