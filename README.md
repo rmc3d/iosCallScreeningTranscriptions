@@ -61,10 +61,10 @@ twilio plugins:install @twilio-labs/plugin-serverless
 
 ### 4. Deploy the Function
 
-Navigate to the `preCallAuth-deployment` directory and deploy:
+Navigate to the `iosCallScreeningTranscriptions` directory and deploy:
 
 ```bash
-cd preCallAuth-deployment
+cd iosCallScreeningTranscriptions
 twilio serverless:deploy
 ```
 
@@ -163,7 +163,7 @@ iosCallScreeningTranscriptions/
 ├── README.md                          # This file
 ├── test-call.sh                       # Quick test helper script
 ├── package.json                       # Root dependencies
-└── preCallAuth-deployment/
+└── iosCallScreeningTranscriptions/
     ├── package.json                   # Twilio serverless dependencies
     └── functions/
         └── ios26_CallScreeningDetection_Transcriptions.js  # Main function (1876 lines)
@@ -208,7 +208,7 @@ iosCallScreeningTranscriptions/
 
 1. **Install dependencies:**
    ```bash
-   cd preCallAuth-deployment
+   cd iosCallScreeningTranscriptions
    npm install
    ```
 
