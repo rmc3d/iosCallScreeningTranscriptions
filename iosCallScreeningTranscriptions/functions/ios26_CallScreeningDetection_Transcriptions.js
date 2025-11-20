@@ -439,7 +439,7 @@ exports.handler = async function(context, event, callback) {
           track: 'inbound_track',
           transcriptionEngine: 'google',
           speechModel: 'telephony',
-          partialResults: true,
+          partialResults: false,
           name: 'ios26-full-detection'
         });
         console.log('✅ Transcription method called successfully');
