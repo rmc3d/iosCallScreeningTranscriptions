@@ -47,10 +47,10 @@ const VoiceResponse = Twilio.twiml.VoiceResponse;
  *   twilio api:core:calls:create \
  *     --from "+YOUR_NUMBER" \
  *     --to "+DESTINATION" \
- *     --url "https://YOUR_DOMAIN.twil.io/ios26-callScreeningDetection-full" \
+ *     --url "https://YOUR_DOMAIN.twil.io/ios26_CallScreeningDetection_Transcriptions" \
  *     --async-amd true \
  *     --machine-detection-timeout 30 \
- *     --status-callback "https://YOUR_DOMAIN.twil.io/ios26-callScreeningDetection-full" \
+ *     --status-callback "https://YOUR_DOMAIN.twil.io/ios26_CallScreeningDetection_Transcriptions" \
  *     --status-callback-event "initiated ringing answered completed" \
  *     --status-callback-method "POST"
  * 
@@ -395,7 +395,7 @@ exports.handler = async function(context, event, callback) {
         // Return continuation TwiML instead of empty response
         const continueResponse = new VoiceResponse();
         continueResponse.pause({ length: 60 });
-        continueResponse.redirect(`https://${context.DOMAIN_NAME}/ios26-callScreeningDetection-full`);
+        continueResponse.redirect(`https://${context.DOMAIN_NAME}/ios26_CallScreeningDetection_Transcriptions`);
         return callback(null, continueResponse);
       }
       
@@ -415,7 +415,7 @@ exports.handler = async function(context, event, callback) {
       // Start Real-time Transcription using VoiceResponse SDK (NOT raw XML)
       console.log('─────────────────────────────────────────────────────────────');
       console.log('🎯 STARTING REAL-TIME TRANSCRIPTION');
-      console.log(`   StatusCallbackUrl: https://${context.DOMAIN_NAME}/ios26-callScreeningDetection-full`);
+      console.log(`   StatusCallbackUrl: https://${context.DOMAIN_NAME}/ios26_CallScreeningDetection_Transcriptions`);
       console.log(`   Track: inbound_track`);
       console.log(`   Engine: google`);
       console.log(`   SpeechModel: telephony`);
@@ -435,17 +435,17 @@ exports.handler = async function(context, event, callback) {
         
         console.log('🔧 Calling start.transcription() with attributes...');
         start.transcription({
-          statusCallbackUrl: `https://${context.DOMAIN_NAME}/ios26-callScreeningDetection-full`,
+          statusCallbackUrl: `https://${context.DOMAIN_NAME}/ios26_CallScreeningDetection_Transcriptions`,
           track: 'inbound_track',
           transcriptionEngine: 'google',
           speechModel: 'telephony',
-          partialResults: true,
+          partialResults: false,
           name: 'ios26-full-detection'
         });
         console.log('✅ Transcription method called successfully');
         
         transcriptionResponse.pause({ length: 60 });
-        transcriptionResponse.redirect(`https://${context.DOMAIN_NAME}/ios26-callScreeningDetection-full`);
+        transcriptionResponse.redirect(`https://${context.DOMAIN_NAME}/ios26_CallScreeningDetection_Transcriptions`);
         
         console.log('📋 GENERATED TWIML:');
         const twimlString = transcriptionResponse.toString();
@@ -478,7 +478,7 @@ exports.handler = async function(context, event, callback) {
     
     console.log('⏳ Continuing call monitoring...');
     response.pause({ length: 60 });
-    response.redirect(`https://${context.DOMAIN_NAME}/ios26-callScreeningDetection-full`);
+    response.redirect(`https://${context.DOMAIN_NAME}/ios26_CallScreeningDetection_Transcriptions`);
     
     return callback(null, response);
     
@@ -1669,7 +1669,7 @@ async function playIOS26Response(callSid, context, screeningResponse) {
       transcriptionEngine="google" 
       speechModel="telephony"
       partialResults="true"
-      statusCallbackUrl="https://${context.DOMAIN_NAME}/ios26-callScreeningDetection-full"
+      statusCallbackUrl="https://${context.DOMAIN_NAME}/ios26_CallScreeningDetection_Transcriptions"
       name="post-ios26-monitoring"
     />
   </Start>
