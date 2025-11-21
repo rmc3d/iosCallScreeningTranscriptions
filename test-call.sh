@@ -5,7 +5,7 @@
 # Configuration - REPLACE THESE WITH YOUR VALUES
 FROM_NUMBER="+1234567890"        # Your Twilio phone number
 TO_NUMBER="+1987654321"          # Number to call (test with your own phones)
-FUNCTION_URL="https://YOUR_DOMAIN.twil.io/ios26_CallScreeningDetection_Transcriptions"
+FUNCTION_URL="https://YOUR_DOMAIN.twil.io/ios26-callScreeningDetection"
 
 # Allow overriding numbers from command line
 if [ -n "$1" ]; then

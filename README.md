@@ -80,10 +80,10 @@ Use this single command to test all scenarios (the function automatically adapts
 twilio api:core:calls:create \
   --from "+YOUR_TWILIO_NUMBER" \
   --to "+DESTINATION_NUMBER" \
-  --url "https://YOUR_DOMAIN.twil.io/ios26_CallScreeningDetection_Transcriptions" \
+  --url "https://YOUR_DOMAIN.twil.io/ios26-callScreeningDetection" \
   --async-amd true \
   --machine-detection-timeout 30 \
-  --status-callback "https://YOUR_DOMAIN.twil.io/ios26_CallScreeningDetection_Transcriptions" \
+  --status-callback "https://YOUR_DOMAIN.twil.io/ios26-callScreeningDetection" \
   --status-callback-event "initiated ringing answered completed" \
   --status-callback-method "POST"
 ```
@@ -106,7 +106,7 @@ A helper script is included for easier testing. First, edit the configuration in
 # Edit these values at the top of test-call.sh
 FROM_NUMBER="+1234567890"        # Your Twilio phone number
 TO_NUMBER="+1987654321"          # Number to call (test with your own phones)
-FUNCTION_URL="https://YOUR_DOMAIN.twil.io/ios26_CallScreeningDetection_Transcriptions"
+FUNCTION_URL="https://YOUR_DOMAIN.twil.io/ios26-callScreeningDetection"
 ```
 
 Then run the script:
